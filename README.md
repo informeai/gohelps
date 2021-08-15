@@ -8,4 +8,20 @@ Get package
 ```
 go get github.com/informeai/gohelps
 ```
+### :fire:  Usage
+Create new string object.
+```
+str := "hello gopher!"
+s := gohelps.NewString(str)
+```
+Use the many methods.
+```
+s, _ := s.Concat(" I'ts ok...")
+//s -> hello gopher! I'ts ok...
+```
+more.
+```
+c,_ := s.CharAt(3)
+//c -> 'l'
+```
 by **wellington gadelha** :punch:.
