@@ -48,3 +48,36 @@ func TestEndsWith(t *testing.T) {
 	}
 	log.Println(es)
 }
+
+//go test -v -run ^TestIncludes
+func TestIncludes(t *testing.T) {
+	str := "hello my friend."
+	s := NewString(str)
+	is, err := s.Includes("hello")
+	if err != nil {
+		t.Errorf("TestIncludes(): got -> %v, want: nil", err)
+	}
+	log.Println(is)
+}
+
+//go test -v -run ^TestIndexOf
+func TestIndexOf(t *testing.T) {
+	str := "hello my friend."
+	s := NewString(str)
+	is, err := s.IndexOf("my")
+	if err != nil {
+		t.Errorf("TestIndexOf(): got -> %v, want: nil", err)
+	}
+	log.Println(is)
+}
+
+//go test -v -run ^TestLastIndexOf
+func TestLastIndexOf(t *testing.T) {
+	str := "hello my friend. this is my dog?"
+	s := NewString(str)
+	is, err := s.LastIndexOf("my")
+	if err != nil {
+		t.Errorf("TestLastIndexOf(): got -> %v, want: nil", err)
+	}
+	log.Println(is)
+}
