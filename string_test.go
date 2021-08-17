@@ -81,3 +81,36 @@ func TestLastIndexOf(t *testing.T) {
 	}
 	log.Println(is)
 }
+
+//go test -v -run ^TestPadEnd
+func TestPadEnd(t *testing.T) {
+	str := "My name is"
+	s := NewString(str)
+	ns, err := s.PadEnd(5, ".")
+	if err != nil {
+		t.Errorf("TestPadEnd(): got -> %v, want: nil", err)
+	}
+	log.Println(ns)
+}
+
+//go test -v -run ^TestPadStart
+func TestPadStart(t *testing.T) {
+	str := ">next level"
+	s := NewString(str)
+	ns, err := s.PadStart(5, "-")
+	if err != nil {
+		t.Errorf("TestPadStart(): got -> %v, want: nil", err)
+	}
+	log.Println(ns)
+}
+
+//go test -v -run ^TestRepeat
+func TestRepeat(t *testing.T) {
+	str := "hello, my friend. "
+	s := NewString(str)
+	ns, err := s.Repeat(3)
+	if err != nil {
+		t.Errorf("TestRepeat(): got -> %v, want: nil", err)
+	}
+	log.Println(ns)
+}

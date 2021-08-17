@@ -15,6 +15,7 @@ var (
 	ErrIndexOutOfRange = errors.New("index out of range")
 	ErrEmptyValue      = errors.New("this empty value")
 	ErrNotFound        = errors.New("not found value")
+	ErrNotPermited     = errors.New("not permited value")
 )
 
 //CharAt return of rune by index.
@@ -75,4 +76,39 @@ func (s String) LastIndexOf(str string) (int, error) {
 		return -1, ErrNotFound
 	}
 	return index, nil
+}
+
+//PadEnd return pads the current string with a given string repeated the final.
+func (s String) PadEnd(count int, str string) (string, error) {
+	if count <= 0 {
+		return "", ErrNotPermited
+	}
+	for i := 0; i < count; i++ {
+		s.base += str
+	}
+	return s.base, nil
+}
+
+//PadStart return pads the current string with a given string repeated the initial.
+func (s String) PadStart(count int, str string) (string, error) {
+	if count <= 0 {
+		return "", ErrNotPermited
+	}
+	ns := ""
+	for i := 0; i < count; i++ {
+		ns += str
+	}
+	return ns + s.base, nil
+}
+
+//Repeat return new string repeated many times.
+func (s String) Repeat(count int) (string, error) {
+	if count <= 0 {
+		return "", ErrNotPermited
+	}
+	ns := s.base
+	for i := 0; i < count; i++ {
+		ns += s.base
+	}
+	return ns, nil
 }
