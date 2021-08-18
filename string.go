@@ -112,3 +112,11 @@ func (s String) Repeat(count int) (string, error) {
 	}
 	return ns, nil
 }
+
+//Replace return new string with replaced first ocorrency the string.
+func (s String) Replace(str, old string) (string, error) {
+	if len(str) == 0 {
+		return "", ErrEmptyValue
+	}
+	return strings.Replace(s.base, str, old, 1), nil
+}
