@@ -114,3 +114,14 @@ func TestRepeat(t *testing.T) {
 	}
 	log.Println(ns)
 }
+
+//go test -v -run ^TestReplace
+func TestReplace(t *testing.T) {
+	str := "hello, this is my dog. You have dog?"
+	s := NewString(str)
+	ns, err := s.Replace("dog", "cat")
+	if err != nil {
+		t.Errorf("TestReplace(): got -> %v, want: nil", err)
+	}
+	log.Println(ns)
+}
