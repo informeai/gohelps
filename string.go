@@ -120,3 +120,19 @@ func (s String) Replace(str, old string) (string, error) {
 	}
 	return strings.Replace(s.base, str, old, 1), nil
 }
+
+//Replace return new string with replaced all ocorrency the string.
+func (s String) ReplaceAll(str, old string) (string, error) {
+	if len(str) == 0 {
+		return "", ErrEmptyValue
+	}
+	return strings.ReplaceAll(s.base, str, old), nil
+}
+
+//Split return slice of strings separeted by string sep.
+func (s String) Split(sep string) ([]string, error) {
+	if len(sep) == 0 {
+		return []string{}, ErrEmptyValue
+	}
+	return strings.Split(s.base, sep), nil
+}

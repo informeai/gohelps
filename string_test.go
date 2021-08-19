@@ -125,3 +125,25 @@ func TestReplace(t *testing.T) {
 	}
 	log.Println(ns)
 }
+
+//go test -v -run ^TestReplaceAll
+func TestReplaceAll(t *testing.T) {
+	str := "hello, this is my dog. You have dog?"
+	s := NewString(str)
+	ns, err := s.ReplaceAll("dog", "cat")
+	if err != nil {
+		t.Errorf("TestReplaceAll(): got -> %v, want: nil", err)
+	}
+	log.Println(ns)
+}
+
+//go test -v -run ^TestSplit
+func TestSplit(t *testing.T) {
+	str := "hello, my friend, this is ok?"
+	s := NewString(str)
+	ns, err := s.Split(" ")
+	if err != nil {
+		t.Errorf("TestReplaceAll(): got -> %v, want: nil", err)
+	}
+	log.Println(ns[0])
+}
