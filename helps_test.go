@@ -13,3 +13,11 @@ func TestNewString(t *testing.T) {
 	}
 	log.Println(h)
 }
+
+//go test -v -run ^TestNewBool
+func TestNewBool(t *testing.T) {
+	b := NewBool(true)
+	if b == nil {
+		t.Errorf("TestNewBool(): got -> %v, want: != nil", b)
+	}
+}
